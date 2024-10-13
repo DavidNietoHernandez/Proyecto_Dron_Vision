@@ -180,3 +180,17 @@ La otra opción sin usar terminal es ir directamente a la carpeta y dar doble cl
 
 	cd "Carpeta donde estan los ejemplos"
 	python3 takeoff_and_land.py
+
+ 9.- Ejemplo Vision
+
+ Para poder identificar algún objeto de un color especifíco se recomienda primero ejecutar el programa :
+
+	python3 threshold_inRange.py
+
+En la ventana que se abre se segmentaran los colores, a través del deslizamiento de las barras inferiores se debe oscurecer toda la pantalla dejando en blanco la figura del objeto que se quiere identificar. Una vez logrado, se apuntan los valores en la línea de código 235 y 236 en el orden en el que aparecen los LOW y los UPPER bounds.
+
+ 	HSV_LOWER_BOUND = (170, 115, 114)
+        HSV_UPPER_BOUND = (180, 206, 255)
+
+Este por ejemplo es para seguir una pelota naranja.
+ 

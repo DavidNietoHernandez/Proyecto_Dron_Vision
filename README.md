@@ -164,15 +164,18 @@ Descargue los ejemplos ejecutando el siguiente comando:
 
 Para ejecutar los ejemplos y poder visualizar el dron en Gazebo y su movimiento en QGround Control ejecute los siguientes comandos en este orden:
 
-	1.-Abrimos Terminal Ctrl Alt T
-	2.-Abrimos Gazebo:
+8.1.-Abrimos Terminal Ctrl Alt T
+8.2.-Abrimos Gazebo:
+
 			cd PX4-Autopilot
 			make px4_sitl gz_x500
-	3. En otra terminal abrimos la carpeta donde se encuentre QGroundControl y ejecutamos:
-			cd  "Nombre de la carpeta"  
-		        ./QGroundControl.AppImage
-  	  La otra opción sin usar terminal es ir directamente a la carpeta y dar doble click.
-	4.- Al abrir QGroundControl se escuchará una voz robótica y en la esquina superior izquierda se vera "Ready to fly"
-	5.-En otra Terminal acceder a la carpeta donde se guardaron los ejemplos en Python y ejecutar cualquier código:
-			cd "Carpeta donde estan los ejemplos"
-			python3 takeoff_and_land.py
+8.3. En otra terminal abrimos la carpeta donde se encuentre QGroundControl y ejecutamos:
+
+		cd  "Nombre de la carpeta"  
+	        ./QGroundControl.AppImage
+La otra opción sin usar terminal es ir directamente a la carpeta y dar doble click.
+8.4.- Al abrir QGroundControl se escuchará una voz robótica y en la esquina superior izquierda se vera "Ready to fly"
+8.5.-En otra Terminal acceder a la carpeta donde se guardaron los ejemplos en Python y ejecutar cualquier código:
+
+	cd "Carpeta donde estan los ejemplos"
+	python3 takeoff_and_land.py

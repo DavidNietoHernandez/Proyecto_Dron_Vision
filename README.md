@@ -165,6 +165,7 @@ Descargue los ejemplos ejecutando el siguiente comando:
 Para ejecutar los ejemplos y poder visualizar el dron en Gazebo y su movimiento en QGround Control ejecute los siguientes comandos en este orden:
 
 8.1.-Abrimos Terminal Ctrl Alt T
+
 8.2.-Abrimos Gazebo:
 
 			cd PX4-Autopilot

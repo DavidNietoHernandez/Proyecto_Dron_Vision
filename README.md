@@ -6,6 +6,7 @@ Para la realización de este proyecto se utiliza Ubuntu 22.04 LTS
 1.- Instalación de Gazebo
 
 Primeramente se inicia instalando el comando curl, el cual nos ayudará a verificar la conectividad a una URL y a transferir datos.
+
 	sudo snap install curl
 
 Gazebo es un software de simulación de robots de código abierto que permite probar y experimentar con robots en escenarios físicos simulados: 
@@ -15,18 +16,17 @@ Gazebo es un software de simulación de robots de código abierto que permite pr
 -Verificar el funcionamiento de sensores, aptitudes de movilidad e incluso de superación de obstáculos 
 -Observar cómo la gravedad afecta la estructura, caídas desde alturas determinadas, fricción, entre otras 
 
-Gazebo se ejecuta en equipos Linux o equipos virtuales Linux. Se integra perfectamente con ROS (Robot Operating System), facilitando la transferencia de 
-simulaciones a aplicaciones del mundo real. 
+Gazebo se ejecuta en equipos Linux o equipos virtuales Linux. Se integra perfectamente con ROS (Robot Operating System), facilitando la transferencia de simulaciones a aplicaciones del mundo real. 
 
 Entre sus características se encuentran: Realismo físico, Compatibilidad con ROS, Librería de modelos, Escalabilidad.
 
 Una vez instalado la libreria del comando CURL, podemos ingresar a la página de Gazebo a través de terminal para descargar e instalar el software:
-	curl -sSL http://get.gazebosim.org | sh
+
+	 curl -sSL http://get.gazebosim.org | sh
 
 2. Instalación de Git
 
-Git es una herramienta de control de versiones que se utiliza para hacer seguimiento de los cambios en los archivos, especialmente cuando varios desarrolladores
-trabajan en los mismos archivos al mismo tiempo: 
+Git es una herramienta de control de versiones que se utiliza para hacer seguimiento de los cambios en los archivos, especialmente cuando varios desarrolladores trabajan en los mismos archivos al mismo tiempo: 
 -Permite a los desarrolladores trabajar de forma remota o sin conexión. 
 -Permite a los desarrolladores realizar modificaciones en los archivos de forma independiente y segura. 
 -Permite a Git fusionar los cambios de forma inteligente en la copia principal de los archivos. 
@@ -39,6 +39,7 @@ trabajan en los mismos archivos al mismo tiempo:
 Git es un software de código abierto y gratuito. Se usa con más frecuencia en la programación de código, pero se puede usar con cualquier tipo de archivo.
 
 En este caso instalaremos la herramienta para poder acceder al código de control de drones de PX4: 
+
 	sudo apt install git
 
 3.- Instalación PX4 Drone Autopilot
@@ -48,17 +49,28 @@ El siguiente repositorio contiene todo lo necesario para el control de drones co
 PX4 es un piloto automático de código abierto para drones que ofrece un estándar para el soporte de software y hardware para drones.
 
 Iniciamos con la descarga del repositorio: 
+
 	git clone https://github.com/PX4/PX4-Autopilot.git
+
 Ingresamos a la carpeta donde se descargo:	
-	cd PX4-Autopilot
+
+	 cd PX4-Autopilot
+
 Y ejecutamoes el comando para crear la interfaz entre el kernel Linux y el usuario:   
-	bash ./Tools/setup/ubuntu.sh  # For Ubuntu
+	
+ 	bash ./Tools/setup/ubuntu.sh  # For Ubuntu
+
 Una vez hecho esto, reiniciamos el equipo con el comando:
-	sudo reboot
+
+ 	sudo reboot
+
 Cuando se haya reiniciado el equipo regresamos a la carpeta donde se descargo:	
+
 	cd PX4-Autopilot
+
 y ejecutamos el siguiente comando para probar la instalación de gazebo y el software de PX4:
-	make px4_sitl gz_x500
+
+ 	make px4_sitl gz_x500
 
 4.-Instalación QGround Control
 
@@ -67,38 +79,48 @@ Antes de instalar QGroundControl debe eliminar el gestor de módem y concederse 
 También es necesario instalar GStreamer para soportar streaming de vídeo.
 
 Antes de instalar QGroundControl por primera vez corra los siguientes comandos:
-	sudo usermod -a -G dialout $USER
+
+ 	sudo usermod -a -G dialout $USER
 	sudo apt-get remove modemmanager -y
 	sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
 	sudo apt install libfuse2 -y
 	sudo apt install libxcb-xinerama0 libxkbcommon-x11-0 libxcb-cursor-dev -y
+
 Descargue el software de QGround Control de la siguiente liga:
-	https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
+
+ 	https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
+
 Instalé el software ejecutando el siguiente comando en la carpeta donde descargo el software
-	chmod +x ./QGroundControl.AppImage
+
+ 	chmod +x ./QGroundControl.AppImage
+
 Para correr el software lo puede hacer desde la terminal
-	./QGroundControl.AppImage
+
+ 	./QGroundControl.AppImage
+
 O dando doble click.
 
 5.-Instalación de Python
 
 Por lo general la instalación de Ubuntu ya viene con Python. Para verificar si contamos con Python corremos el siguiente comando:
+
 	python3 --version
+
 En caso de no tener Python instalado se ejecutarán los siguientes comandos:
+
 	sudo apt update
 	sudo apt install python3
 	sudo apt install python3-pip
 
-Este proyecto se ha desarrollado con Python 3.12, ya esta disponible 3.13 sin embargo, no lo he probado con dicha versión. En caso de tener una versión anterior al 
-3.12 actualizaremos Python con los siguientes comandos: 
+Este proyecto se ha desarrollado con Python 3.12, ya esta disponible 3.13 sin embargo, no lo he probado con dicha versión. En caso de tener una versión anterior al 3.12 actualizaremos Python con los siguientes comandos: 
+
 	sudo apt install software-properties-common
 	sudo add-apt-repository ppa:deadsnakes/ppa
 	sudo apt update
 	sudo apt install python3.12
 
 6.- Instalación MAVSDK
-MAVSDK es un conjunto de bibliotecas que permiten la interoperabilidad entre sistemas MAVLink y lenguajes de programación. Su objetivo es facilitar el uso de una 
-API de alto nivel para MAVLink.
+MAVSDK es un conjunto de bibliotecas que permiten la interoperabilidad entre sistemas MAVLink y lenguajes de programación. Su objetivo es facilitar el uso de una API de alto nivel para MAVLink.
 
 MAVSDK se puede utilizar en:
 -Un dron, en un ordenador compañero
@@ -114,24 +136,23 @@ Algunas de las características de MAVSDK son:
 El proyecto MAVSDK está bajo la gobernanza de la Dronecode Foundation.
 
 Para instalar dichas bibliotecas se ejecutará el siguiente comando: 
+
 	pip install mavsdk
 
 7.-Instalación OpenCV
 
-OpenCV (Open Source Computer Vision Library) es una biblioteca de software de código abierto para visión artificial y aprendizaje automático. Se trata de una de las
-librerías más grandes del mundo en su campo y es utilizada por compañías, grupos de investigación y entidades gubernamentales. 
+OpenCV (Open Source Computer Vision Library) es una biblioteca de software de código abierto para visión artificial y aprendizaje automático. Se trata de una de las librerías más grandes del mundo en su campo y es utilizada por compañías, grupos de investigación y entidades gubernamentales. 
 
 OpenCV ofrece una infraestructura común para aplicaciones de visión artificial y permite acelerar el uso de la percepción artificial en productos comerciales. 
 
-Entre sus funciones se encuentran: Reconocimiento de caras, Identificación de objetos, Clasificación de acciones humanas en video, Seguimiento de objetos en movimiento,
-Reconstrucción 3D a partir de imágenes. 
+Entre sus funciones se encuentran: Reconocimiento de caras, Identificación de objetos, Clasificación de acciones humanas en video, Seguimiento de objetos en movimiento, Reconstrucción 3D a partir de imágenes. 
 
-OpenCV es multiplataforma y está disponible para los sistemas operativos GNU/Linux, Mac OS X, Windows y Android. Es compatible con varios lenguajes de programación,
-como Python, C++, y Java.
+OpenCV es multiplataforma y está disponible para los sistemas operativos GNU/Linux, Mac OS X, Windows y Android. Es compatible con varios lenguajes de programación, como Python, C++, y Java.
  
 OpenCV es gratuito para uso comercial y académico.
 
 Para instalar OpenCV en Ubuntu se ejecutarán los siguientes comandos:
+
 	sudo apt update
 	sudo apt install python3-opencv
 

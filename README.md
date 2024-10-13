@@ -175,7 +175,9 @@ Para ejecutar los ejemplos y poder visualizar el dron en Gazebo y su movimiento 
 		cd  "Nombre de la carpeta"  
 	        ./QGroundControl.AppImage
 La otra opción sin usar terminal es ir directamente a la carpeta y dar doble click.
+
 8.4.- Al abrir QGroundControl se escuchará una voz robótica y en la esquina superior izquierda se vera "Ready to fly"
+
 8.5.-En otra Terminal acceder a la carpeta donde se guardaron los ejemplos en Python y ejecutar cualquier código:
 
 	cd "Carpeta donde estan los ejemplos"
